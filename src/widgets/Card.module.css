@@ -1,0 +1,9 @@
+.card {
+    /*min-height: 671px;*/
+}
+
+.cardBackground{
+    background: url("/assets/Header.png") no-repeat;
+    min-height: 695px;
+    margin: 0;
+}

@@ -1,0 +1,57 @@
+.descriptionContainer{
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.5;
+    margin-top: 30px;
+    padding: 7%;
+    text-align: center;
+    width: 100%;
+}
+
+.countdownContainer{
+    font-family: "libre Baskerville", serif;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+    width: 100%;
+}
+
+.countdownNumbersContainer:after{
+    content:"";
+    display: table;
+    clear: both;
+}
+
+
+.countdownNumbersContainerLeft{
+    float: left;
+    margin-top: 20px;
+    padding-left: 10%;
+    text-align: center;
+    width: 33.33%;
+}
+
+.countdownNumbersContainerCenter{
+    float: left;
+    margin-top: 20px;
+    text-align: center;
+    width: 33.33%;
+}
+.countdownNumbersContainerRight{
+    float: left;
+    margin-top: 20px;
+    padding-right: 10%;
+    text-align: center;
+    width: 33.33%;
+}
+
+.countdownNumbersLabel{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.containersNumbersNumber{
+    font-size: 58px;
+}
+
+
