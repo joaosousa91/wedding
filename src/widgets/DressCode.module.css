@@ -1,7 +1,7 @@
 .dressCodeContainer {
     align-items: flex-start;
     display: flex;               /* Use Flexbox to align children side by side */
-    height: 332px;
+    height: 292px;
     position: relative;
     width: 100%;                 /* Full width of the parent */
 }
@@ -29,7 +29,7 @@
     min-height: 480px;
     padding-top: 201px;          /* Padding for spacing */
     position: relative;
-    transform: translateY(-165px);
+    transform: translateY(-135px);
     width: 100%;            /* Full width of the container */
 }
 

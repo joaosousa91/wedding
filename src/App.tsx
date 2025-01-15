@@ -3,7 +3,7 @@ import Card from "./widgets/Card";
 import Countdown from "./widgets/Countdown"
 import Separator from "./widgets/Separator";
 import Local from "./widgets/Local"
-//import WeddingInviteForm from "./widgets/WeddingInviteForm";
+import WeddingInviteForm from "./widgets/WeddingInviteForm";
 import DressCode from "./widgets/DressCode.tsx";
 
 
@@ -15,7 +15,7 @@ function App() {
         <Local />
         <DressCode />
         <Separator />
-
+        <WeddingInviteForm />
     </>
 }
 
