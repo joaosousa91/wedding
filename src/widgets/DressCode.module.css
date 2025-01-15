@@ -1,0 +1,103 @@
+.dressCodeContainer {
+    align-items: flex-start;
+    display: flex;               /* Use Flexbox to align children side by side */
+    height: 332px;
+    position: relative;
+    width: 100%;                 /* Full width of the parent */
+}
+
+.photoContainer {
+    flex: 0 0 55%;               /* Flex-grow: 0, flex-shrink: 0, flex-basis: 55% */
+    height: 100%;                /* Full height of the container */
+    z-index: 2;
+}
+
+.separatorContainer {
+    flex: 0 0 45%;               /* Flex-grow: 0, flex-shrink: 0, flex-basis: 45% */
+    height: 100%;                /* Full height of the container */
+    display: flex;               /* Optional if you want to center content in this div */
+    justify-content: center;     /* Center the image */
+    align-items: center;         /* Vertically align */
+    background-size: cover;
+    z-index: 2;
+}
+
+.dressCodeInfoContainer {
+    background-color: white; /* White background */
+    color: #20533C;
+    margin-bottom: 50px;
+    min-height: 480px;
+    padding-top: 201px;          /* Padding for spacing */
+    position: relative;
+    transform: translateY(-165px);
+    width: 100%;            /* Full width of the container */
+}
+
+.dressCodeHeader{
+    font-family: "libre Baskerville", serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.dressCodeText{
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.colorContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.colorContainerLine{
+    flex: 0 0 30%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.colorContainerText{
+    flex: 0 0 40%;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.circlesContainer {
+    align-items: center;
+    display: flex;          /* Use flex to arrange circles */
+    justify-content: center; /* Center the circles horizontally */
+    margin: 20px 0;       /* Margin above and below */
+}
+
+.circlesBlockContainer{
+    flex: 0 0 25%;
+    text-align: center;
+}
+
+.circleText{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.circleWhite, .circleRed, .circleBlack {
+    width: 32px;           /* Set width of circles */
+    height: 32px;          /* Set height of circles */
+    border-radius: 50%;    /* Make them circular */
+    border: 0.5px solid black;
+    margin-bottom: 2px;
+    margin-left: 32px;
+}
+
+.circleWhite {
+    background-color: white; /* Green circle */
+}
+
+.circleRed {
+    background-color: red;   /* Red circle */
+}
+
+.circleBlack {
+    background-color: black;  /* Blue circle */
+}
