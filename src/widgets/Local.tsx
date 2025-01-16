@@ -6,8 +6,8 @@ function Local() {
         <>
             <div>
 
-                <div className={styles.localContainer}>Local</div>
-                <div className={styles.localPlace}>Farol da Guia</div>
+                <div className={styles.localContainer}>Horas/ Local</div>
+                <div className={styles.localPlace}>Às 16h00 no Farol da Guia</div>
                 <div className={styles.localAddress}>Avenida Rei Humberto II de Itália, 2750 641 CASCAIS.</div>
                 <div className={styles.localButton} onClick={
                     () => {
