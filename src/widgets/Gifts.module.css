@@ -1,0 +1,56 @@
+.giftContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.giftImageContainer{
+    background: white;
+    margin-top: 45px;
+    width: 100%;
+}
+
+.giftInfoContainer{
+    background: white;
+    color: #20533C;
+    margin-top: -1px;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom:60px;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.giftTitle{
+    font-family: "libre Baskerville", serif;
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.giftSubTitle{
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 45px;
+}
+
+.giftText{
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.giftSeparator{
+    margin-top: -3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    z-index: 2;
+}
+
+.thanksText{
+    color: white;
+    font-family: "libre Baskerville", serif;
+    font-size: 28px;
+    margin-top: 40px;
+    padding-bottom: 50px;
+    text-align: center;
+}

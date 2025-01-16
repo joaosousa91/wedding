@@ -1,4 +1,4 @@
-body {
+html, body {
   line-height: 1.5;
   /*font-family: "libre Baskerville", serif;*/
   font-family: "Jost", serif;
@@ -6,6 +6,13 @@ body {
   font-weight: 400;
   background-color: #20533C;
   margin: 0;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar{
+  width: 0;
 }
 
 main {

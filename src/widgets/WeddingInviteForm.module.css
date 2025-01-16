@@ -1,0 +1,52 @@
+.rsvpContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.rsvpTitle{
+    flex: 0 0 100%;
+    font-family: "libre Baskerville", serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.rsvpSubTitle{
+    flex: 0 0 100%;
+    font-size: 18px;
+    font-weight: 200;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.rsvpForm{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    padding: 0 5%;
+}
+
+.rsvpForm input[type="text"], .rsvpForm input[type="tel"]{
+    background-color: transparent;  /* No background color */
+    border-bottom: 1px solid white;        /* Set border color (white) */
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    box-shadow: none;               /* Remove box shadow */
+    color: white;                   /* Text color */
+    font-size: 16px;                /* Adjust font size */
+    margin-top: 10px;
+    outline: none;                  /* Remove the default outline */
+    padding: 8px;                  /* Add padding for spacing */
+}
+
+/* Optional: Style on focus to enhance user experience */
+.rsvpForm input[type="text"]:focus, .rsvpForm input[type="tel"]:focus{
+    border-bottom: none;    /* Change border color on focus */
+    box-shadow: none;               /* Ensure no shadow on focus */
+}
+
+.label{
+    font-size: 18px;
+    font-weight: 600;
+}

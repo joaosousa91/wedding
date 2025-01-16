@@ -5,6 +5,7 @@ import Separator from "./widgets/Separator";
 import Local from "./widgets/Local"
 import WeddingInviteForm from "./widgets/WeddingInviteForm";
 import DressCode from "./widgets/DressCode.tsx";
+import Gifts from "./widgets/Gifts.tsx";
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
         <DressCode />
         <Separator />
         <WeddingInviteForm />
+        <Separator />
+        <Gifts />
     </>
 }
 
