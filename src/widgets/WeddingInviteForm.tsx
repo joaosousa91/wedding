@@ -70,18 +70,20 @@ const WeddingInviteForm: React.FC = () => {
                         </label>
                         <input
                             type="text"
+                            className={name ? styles.hasValue : styles.doesNotHaveValue}
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            onFocus={() => setName(name)} // Trigger floating label effect
                             required
                         />
                     </div>
+
                     <div className={styles.inputContainer}>
-                        <label className={styles.label}>
+                        <label className={styles.labelTel}>
                             Nº Telefone*:
                         </label>
                         <input
                             type="tel"
+                            className={phoneNumber ? styles.hasValue : styles.doesNotHaveValue}
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
@@ -109,6 +111,7 @@ const WeddingInviteForm: React.FC = () => {
                         </label>
                         <input
                             type="text"
+                            className={foodRestrictions ? styles.hasValue : styles.doesNotHaveValue}
                             value={foodRestrictions}
                             onChange={(e) => setFoodRestrictions(e.target.value)}
                         />
@@ -119,6 +122,7 @@ const WeddingInviteForm: React.FC = () => {
                         </label>
                         <input
                             type="text"
+                            className={musicSuggestions ? styles.hasValue : styles.doesNotHaveValue}
                             value={musicSuggestions}
                             onChange={(e) => setMusicSuggestions(e.target.value)}
                         />

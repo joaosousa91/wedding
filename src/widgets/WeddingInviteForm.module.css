@@ -19,34 +19,58 @@
     text-align: center;
 }
 
-.rsvpForm{
+form {
     display: flex;
     flex-direction: column;
+}
+
+.rsvpForm{
     margin-top: 25px;
     padding: 0 5%;
 }
 
+.rsvpForm label{
+    width: auto;
+}
+
+.rsvpForm .labelTel{
+    width: 40%;
+}
+
 .rsvpForm input[type="text"], .rsvpForm input[type="tel"]{
     background-color: transparent;  /* No background color */
-    border-bottom: 1px solid white;        /* Set border color (white) */
     border-left: none;
     border-right: none;
     border-top: none;
     box-shadow: none;               /* Remove box shadow */
     color: white;                   /* Text color */
     font-size: 16px;                /* Adjust font size */
-    margin-top: 10px;
+    margin-top: -2%;
     outline: none;                  /* Remove the default outline */
     padding: 8px;                  /* Add padding for spacing */
+    transition: translate 0.3s ease;
+    width: -webkit-fill-available;
 }
 
-/* Optional: Style on focus to enhance user experience */
 .rsvpForm input[type="text"]:focus, .rsvpForm input[type="tel"]:focus{
-    border-bottom: none;    /* Change border color on focus */
-    box-shadow: none;               /* Ensure no shadow on focus */
+    translate: 0 0; /* Prevent moving up if has value */
 }
 
-.label{
-    font-size: 18px;
-    font-weight: 600;
+
+.rsvpForm .hasValue {
+    border-bottom: none;
+    translate: 0 0; /* Prevent moving up if has value */
+}
+
+.rsvpForm .doesNotHaveValue {
+    border-bottom: 1px solid white;
+    translate: 0 -35%; /* Prevent moving up if has value */
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;          /* Space below each input field */
+    position: relative;           /* Create a positioning context for the label */
+    width: 100%;
 }

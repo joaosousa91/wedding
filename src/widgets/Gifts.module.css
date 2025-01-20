@@ -38,6 +38,11 @@
     font-weight: 200;
 }
 
+.giftIban{
+    font-size: 18px;
+    font-weight: 400;
+}
+
 .giftSeparator{
     margin-top: -3%;
     padding-left: 10%;
