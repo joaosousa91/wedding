@@ -2,7 +2,7 @@
 import  { useState, useEffect } from "react";
 import styles from "./Countdown.module.css";
 
-const weddingDate = new Date("7/6/2025 17:00:00")
+const weddingDate = new Date("6/7/2025 17:00:00")
 
 
 //Functions that will format the time in order to get what needed in screen days, hours, minutes
