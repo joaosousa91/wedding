@@ -18,16 +18,9 @@ const WeddingInviteForm: React.FC = () => {
 
     useEffect(() => {
         client = generateClient<Schema>();
-        console.log("Amplify Client has been generated:", client); // Log the client
-        console.log("Available Models:", client.models); // Log the models to check if they are populated
     }, []);
 
     const handleSubmit = async () => {
-
-
-        //log client on submit
-        console.log("Amplify Client has been generated:", client);
-        console.log("Available Models:", client.models);
 
         const rsvpData = {
             name,
@@ -38,6 +31,7 @@ const WeddingInviteForm: React.FC = () => {
             musicSuggestions,
         };
 
+        console.log("Entered handle submit with following rsvpData", rsvpData);
 
         try {
             // Listar todas as RSVPs e procurar pelo número de telefone
@@ -58,12 +52,17 @@ const WeddingInviteForm: React.FC = () => {
                 };
 
                 // Chama o método de atualizar com o novo objeto
-                await client.models.WeddingInviteResponse.update(updatedData);
+                const rsvpResponse = await client.models.WeddingInviteResponse.update(updatedData);
+                console.log("Response from update call:", rsvpResponse);
                 console.log("RSVP successfully updated!");
                 setSuccessMessage('RSVP atualizado com sucesso!');
             } else {
+
+                console.log("Response not found, going to create");
+
                 // Se não houver uma resposta existente, crie uma nova
-                await client.models.WeddingInviteResponse.create(rsvpData);
+                const rsvpResponse = client.models.WeddingInviteResponse.create(rsvpData);
+                console.log("Response from create call:", rsvpResponse);
                 console.log("RSVP successfully created!");
                 setSuccessMessage('RSVP criado com sucesso!');
             }
