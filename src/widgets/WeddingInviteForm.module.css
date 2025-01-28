@@ -40,6 +40,7 @@ form {
 .rsvpForm input[type="text"], .rsvpForm input[type="tel"]{
     background-color: transparent;  /* No background color */
     border-left: none;
+    border-radius: 0;
     border-right: none;
     border-top: none;
     box-shadow: none;               /* Remove box shadow */
@@ -53,6 +54,7 @@ form {
 }
 
 .rsvpForm input[type="text"]:focus, .rsvpForm input[type="tel"]:focus{
+    border-bottom: none;
     translate: 0 0; /* Prevent moving up if has value */
 }
 
@@ -74,3 +76,33 @@ form {
     position: relative;           /* Create a positioning context for the label */
     width: 100%;
 }
+
+.primaryButton{
+    background: #EC7833;
+    border: #EC7833 3px solid;
+    border-radius: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.secondaryButton{
+    background: transparent;
+    border: #EC7833 3px solid;
+    border-radius: 20px;
+    font-size: 18px;
+    margin-left: 15%;
+    text-align: center;
+}
+
+.radioInput {
+    accent-color: #EC7833; /* Cor do radio button */
+    margin-right: 5px; /* Espaçamento entre radio buttons */
+}
+
+.radioGroup {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+

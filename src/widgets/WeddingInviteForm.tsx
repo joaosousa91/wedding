@@ -22,8 +22,8 @@ const WeddingInviteForm: React.FC = () => {
         console.log("Available Models:", client.models); // Log the models to check if they are populated
     }, []);
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
+
 
         //log client on submit
         console.log("Amplify Client has been generated:", client);
@@ -38,13 +38,36 @@ const WeddingInviteForm: React.FC = () => {
             musicSuggestions,
         };
 
-        console.log("Creating RSVP with this data:", rsvpData);
 
         try {
-            // API Call to create response
-            await client.models.WeddingInviteResponse.create(rsvpData);
-            console.log("RSVP successfully created!");
-            setSuccessMessage('RSVP criado com sucesso!');
+            // Listar todas as RSVPs e procurar pelo número de telefone
+            const response = await client.models.WeddingInviteResponse.list();
+            const existingResponse = response.data.find(item => item.phoneNumber === phoneNumber);
+
+            if (existingResponse) {
+
+                console.log("Response already found, going to update");
+
+                // Se uma resposta existente for encontrada, atualize-a
+                const existingId = existingResponse.id; // ID único da resposta existente
+
+                // Cria um novo objeto com o ID e os campos atualizados
+                const updatedData = {
+                    id: existingId,
+                    ...rsvpData,
+                };
+
+                // Chama o método de atualizar com o novo objeto
+                await client.models.WeddingInviteResponse.update(updatedData);
+                console.log("RSVP successfully updated!");
+                setSuccessMessage('RSVP atualizado com sucesso!');
+            } else {
+                // Se não houver uma resposta existente, crie uma nova
+                await client.models.WeddingInviteResponse.create(rsvpData);
+                console.log("RSVP successfully created!");
+                setSuccessMessage('RSVP criado com sucesso!');
+            }
+
             setError(null); // clears any error
         } catch (err) {
             setError('Erro ao criar RSVP. Tente novamente.');
@@ -89,22 +112,32 @@ const WeddingInviteForm: React.FC = () => {
                             required
                         />
                     </div>
-                    <label>
-                        Will you attend:
-                        <input
-                            type="checkbox"
-                            checked={isAttending}
-                            onChange={() => setIsAttending(!isAttending)}
-                        />
-                    </label>
-                    <label>
-                        Acompanhante:
-                        <input
-                            type="checkbox"
-                            checked={isPlusOne}
-                            onChange={() => setIsPlusOne(!isPlusOne)}
-                        />
-                    </label>
+
+                    <div className={styles.radioGroup}>
+                        <label>Acompanhante:</label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="plusOne"
+                                value="yes"
+                                className={styles.radioInput}
+                                checked={isPlusOne}
+                                onChange={() => setIsPlusOne(true)}
+                            />
+                            Sim
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="plusOne"
+                                value="no"
+                                className={styles.radioInput}
+                                checked={!isPlusOne}
+                                onChange={() => setIsPlusOne(false)}
+                            />
+                            Não
+                        </label>
+                    </div>
                     <div className={styles.inputContainer}>
                         <label className={styles.label}>
                             Restrições alimentares:
@@ -128,7 +161,30 @@ const WeddingInviteForm: React.FC = () => {
                         />
                     </div>
 
-                    <button type="submit">Enviar</button>
+                    <div>
+                        <button
+                            className={styles.primaryButton}
+                            type="button"
+                            onClick={() => {
+                                setIsAttending(true);
+                                handleSubmit();
+                            }}
+                        >
+                            Confirmo
+                        </button>
+                        <button
+                            className={styles.secondaryButton}
+                            type="button"
+                            onClick={() => {
+                                setIsAttending(false);
+                                handleSubmit();
+                            }}
+                        >
+                            Não Confirmo
+                        </button>
+                    </div>
+
+
                     {error && <p style={{color: 'red'}}>{error}</p>}
                     {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
 
