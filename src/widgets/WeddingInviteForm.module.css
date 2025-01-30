@@ -59,17 +59,31 @@ form {
 }
 
 
+
 .rsvpForm .hasValue {
     border-bottom: none;
     translate: 0 0; /* Prevent moving up if has value */
+    width: 100%;
+}
+
+input{
+    border-bottom: none;
 }
 
 .rsvpForm .doesNotHaveValue {
     border-bottom: 1px solid white;
     translate: 0 -35%; /* Prevent moving up if has value */
+    width: 100%;
+}
+
+.PhoneInput{
+    border-bottom: none;
+    translate: 0 0; /* Prevent moving up if has value */
+    width: 100%;
 }
 
 .inputContainer {
+    align-items: center;
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;          /* Space below each input field */

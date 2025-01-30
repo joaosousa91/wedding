@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { generateClient } from 'aws-amplify/data';
 import { Schema } from '../../amplify/data/resource';
-import styles from "./WeddingInviteForm.module.css"
+import styles from "./WeddingInviteForm.module.css";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+
 
 // Satisfactorily declare the client variable outside
 let client: ReturnType<typeof generateClient<Schema>>;
 
 const WeddingInviteForm: React.FC = () => {
     const [name, setName] = useState<string>('');
-    const [phoneNumber, setPhoneNumber] = useState<string>('');
+    const [phoneNumber, setPhoneNumber] = useState<string | undefined>(undefined);
     const [isPlusOne, setIsPlusOne] = useState<boolean>(false);
     const [isAttending, setIsAttending] = useState<boolean>(true);
     const [foodRestrictions, setFoodRestrictions] = useState<string>('');
     const [musicSuggestions, setMusicSuggestions] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string>('');
+
 
     useEffect(() => {
         client = generateClient<Schema>();
@@ -32,6 +36,17 @@ const WeddingInviteForm: React.FC = () => {
         };
 
         console.log("Entered handle submit with following rsvpData", rsvpData);
+
+        if (!phoneNumber){
+            setError('Por favor insira um número de telefone');
+            return;
+        }
+
+        if (!phoneNumber.startsWith('+')) {
+            setError('O número de telefone deve incluir o prefixo.');
+            return;
+        }
+
 
         try {
             // Listar todas as RSVPs e procurar pelo número de telefone
@@ -103,11 +118,12 @@ const WeddingInviteForm: React.FC = () => {
                         <label className={styles.labelTel}>
                             Nº Telefone*:
                         </label>
-                        <input
-                            type="tel"
-                            className={phoneNumber ? styles.hasValue : styles.doesNotHaveValue}
+                        <PhoneInput
+                            international
+                            defaultCountry="PT"
                             value={phoneNumber}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            className={phoneNumber ? styles.hasValue : styles.doesNotHaveValue}
+                            onChange={setPhoneNumber}
                             required
                         />
                     </div>
