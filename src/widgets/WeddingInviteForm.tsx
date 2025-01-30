@@ -154,6 +154,7 @@ const WeddingInviteForm: React.FC = () => {
                         </label>
                     </div>
                     <div className={styles.inputContainer}>
+                        
                         <label className={styles.label}>
                             Restrições alimentares:
                         </label>
