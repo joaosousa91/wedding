@@ -5,12 +5,13 @@ import "./index.css";
 import {RouterProvider, createBrowserRouter} from "react-router-dom";
 import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
+import BOApp from "./backOffice/BOApp.tsx";
 
 Amplify.configure(outputs);
 
 const router = createBrowserRouter([
     {path: '/', element: <App />},
-    //{path: '/BackOffice', element: <BackOfficeApp />}
+    {path: '/BackOffice', element: <BOApp />}
 ])
 
 const rootElement = document.getElementById("root");

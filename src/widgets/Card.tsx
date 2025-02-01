@@ -7,9 +7,9 @@ function Card() {
 
             <Image
                 alt="Bea e Joao"
-                srcSet="/assets/Desktop.png 300w, /assets/Header_v4.png 375w"
+                srcSet="/assets/Header_v4.png 300w, /assets/Header_v4.png 375w"
                 sizes="(min-width: 400px) 300px"
-                src="/assets/Desktop.png"
+                src="/assets/Header_v4.png.png"
                 height="100%"
                 width="100%"
             />
