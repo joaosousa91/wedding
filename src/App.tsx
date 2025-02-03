@@ -4,21 +4,23 @@ import Countdown from "./widgets/Countdown"
 import Separator from "./widgets/Separator";
 import Local from "./widgets/Local"
 import WeddingInviteForm from "./widgets/WeddingInviteForm";
-import DressCode from "./widgets/DressCode.tsx";
-import Gifts from "./widgets/Gifts.tsx";
+import DressCode from "./widgets/DressCode";
+import Gifts from "./widgets/Gifts";
+import Menu from "./widgets/Menu";
 
 
 function App() {
     return <>
         <Card />
-        <Countdown />
+        <Menu />
+        <Countdown id="countdown"/>
         <Separator />
-        <Local />
-        <DressCode />
+        <Local id="local"/>
+        <DressCode id="dressCode"/>
         <Separator />
-        <WeddingInviteForm />
+        <WeddingInviteForm id="rsvp"/>
         <Separator />
-        <Gifts />
+        <Gifts id="gift"/>
     </>
 }
 

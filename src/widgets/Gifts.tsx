@@ -1,8 +1,12 @@
 import styles from "./Gifts.module.css"
 import {Image} from "@aws-amplify/ui-react";
 
-function Gifts(){
-    return <div className={styles.giftContainer}>
+export interface GiftProps {
+    id?: string; // Define o tipo da prop id para ser opcional
+}
+
+function Gifts({id}:GiftProps){
+    return <div id={id} className={styles.giftContainer}>
 
         <div className={styles.giftImageContainer}>
 

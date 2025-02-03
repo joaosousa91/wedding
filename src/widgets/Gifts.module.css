@@ -5,7 +5,7 @@
 
 .giftImageContainer{
     background: white;
-    margin-top: 45px;
+    margin-top: 10%;
     width: 100%;
 }
 
@@ -24,18 +24,19 @@
 .giftTitle{
     font-family: "libre Baskerville", serif;
     font-size: 30px;
-    margin: 15px 0;
+    margin-bottom: 3%;
+    margin-top: 10%;
 }
 
 .giftSubTitle{
     font-size: 22px;
     font-weight: 600;
-    margin-top: 45px;
+    margin-top: 10%;
 }
 
 .giftText{
     font-size: 18px;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 .giftIban{

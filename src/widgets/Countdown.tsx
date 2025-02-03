@@ -21,9 +21,14 @@ function GetMinutes(time: number){
 
 //----------
 
+// Função principal do componente Countdown
+export interface CountdownProps {
+    id?: string; // Define o tipo da prop id para ser opcional
+}
+
 
 //Main function that will export the countdown block
-function Countdown (){
+function Countdown ({id}: CountdownProps){
 
     const [timeRemaining, setTimeRemaining] = useState(0);
 
@@ -49,11 +54,11 @@ function Countdown (){
     }, [timeRemaining]);
 
     return (
-        <>
+        <div id={id}>
             <div className={styles.descriptionContainer}>
-                Venham celebrar este momento especial connosco.
-                A cerimónia será um dia repleto de amor, alegria e memórias inesquecíveis.
-                Mal podemos esperar para partilhar este dia maravilhoso com todos vocês!
+                Venham celebrar este momento especial <br/>connosco. A cerimónia será um dia repleto<br/> de amor,
+                alegria e memórias inesquecíveis. <br />Mal podemos esperar para partilhar este dia maravilhoso com todos
+                vocês!
             </div>
             <div className={styles.countdownContainer}>
                 Countdown
@@ -72,7 +77,7 @@ function Countdown (){
                     <div className={styles.containersNumbersNumber}>{GetMinutes(timeRemaining)}</div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

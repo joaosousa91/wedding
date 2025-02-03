@@ -1,10 +1,14 @@
 import styles from "./DressCode.module.css"
 import {Image} from "@aws-amplify/ui-react";
 
-function DressCode(){
+export interface DressCodeProps {
+    id?: string; // Define o tipo da prop id para ser opcional
+}
+
+function DressCode({id}: DressCodeProps){
 
     return <>
-        <div className={styles.dressCode}>
+        <div id={id} className={styles.dressCode}>
             <div className={styles.dressCodeContainer}>
                 <div className={styles.photoContainer}>
                     <Image
@@ -24,7 +28,7 @@ function DressCode(){
             </div>
             <div className={styles.dressCodeInfoContainer}>
                 <div className={styles.dressCodeHeader}>Dress Code</div>
-                <div className={styles.dressCodeText}>Summer cocktail attire <br/>Chique e Colorido</div>
+                <div className={styles.dressCodeText}>Summer Cocktail Attire <br/>Chique e Colorido</div>
                 <div className={styles.colorContainer}>
                     <div className={styles.colorContainerLineLeft}>
                         <Image

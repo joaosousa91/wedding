@@ -9,7 +9,7 @@ import 'react-phone-number-input/style.css';
 // Satisfactorily declare the client variable outside
 let client: ReturnType<typeof generateClient<Schema>>;
 
-const WeddingInviteForm: React.FC = () => {
+const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
     const [name, setName] = useState<string>('');
     const [phoneNumber, setPhoneNumber] = useState<string | undefined>(undefined);
     const [isPlusOne, setIsPlusOne] = useState<boolean>(false);
@@ -91,7 +91,7 @@ const WeddingInviteForm: React.FC = () => {
     };
 
     return (
-        <div className={styles.rsvpContainer}>
+        <div id={id} className={styles.rsvpContainer}>
 
             <div className={styles.rsvpTitle}>RSVP</div>
 
