@@ -1,5 +1,24 @@
-.responseListContainer{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.responseListContainer {
+    padding: 20px; /* Padding da lista de respostas */
+}
+
+.responseTable {
+    width: 100%; /* Tabela ocupa toda a largura */
+    border-collapse: collapse; /* Remove espaços entre células */
+}
+
+.responseTable th,
+.responseTable td {
+    border: 1px solid #EC7833; /* Borda das células */
+    padding: 12px; /* Espaçamento interno */
+    text-align: left; /* Alinhamento do texto à esquerda */
+}
+
+.responseTable th {
+    background-color: #EC7833; /* Cor de fundo dos cabeçalhos */
+    font-weight: bold; /* Destaque nos cabeçalhos */
+}
+
+.responseTable tr:hover {
+    background-color: #EC7833; /* Cor de fundo ao passar o mouse */
 }

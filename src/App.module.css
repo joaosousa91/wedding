@@ -28,6 +28,20 @@
   }
 }
 
+.mainContainer{
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .mainContainer {
+    /* Estilos específicos para desktops maiores */
+    border-radius: 20px;
+    border: 1px solid #EC7833;
+    max-width: 700px; /* Escolhe uma largura que funcione bem para o teu design */
+    margin: 0 auto;   /* Centra o conteúdo horizontalmente */
+    padding: 0 20px;  /* Adiciona algum padding para espaçamento interno */
+  }
+}
 .card {
   padding: 2em;
 }

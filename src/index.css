@@ -10,17 +10,6 @@ html, body {
   scrollbar-width: none;
 }
 
-@media (min-width: 1024px) {
-  body {
-    /* Estilos específicos para desktops maiores */
-    border-radius: 20px;
-    border: 1px solid #EC7833;
-    max-width: 700px; /* Escolhe uma largura que funcione bem para o teu design */
-    margin: 0 auto;   /* Centra o conteúdo horizontalmente */
-    padding: 0 20px;  /* Adiciona algum padding para espaçamento interno */
-  }
-}
-
 body::-webkit-scrollbar{
   width: 0;
 }

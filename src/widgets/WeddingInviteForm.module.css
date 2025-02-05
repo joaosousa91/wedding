@@ -24,6 +24,17 @@ form {
     flex-direction: column;
 }
 
+.inputContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;          /* Space below each input field */
+    position: relative;           /* Create a positioning context for the label */
+    width: 100%;
+}
+
 .rsvpForm{
     margin-top: 25px;
     padding: 0 5%;
@@ -37,7 +48,7 @@ form {
     width: 40%;
 }
 
-.rsvpForm input[type="text"], .rsvpForm input[type="tel"]{
+.rsvpForm input[type="text"], .rsvpForm input[type="tel"], .rsvpForm textarea{
     background-color: transparent;  /* No background color */
     border-left: none;
     border-radius: 0;
@@ -57,7 +68,6 @@ form {
     border-bottom: none;
     translate: 0 0; /* Prevent moving up if has value */
 }
-
 
 
 .rsvpForm .hasValue {
@@ -82,12 +92,121 @@ input{
     width: 100%;
 }
 
-.inputContainer {
+/*-------------------------------------------*/
+/*              RADIO BUTTONS                */
+/*-------------------------------------------*/
+
+.radioGroup {
     align-items: center;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.radioGroup label{
+    align-items: center;
+    display: flex;
+    flex: 1;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.radioInput {
+    -webkit-appearance: none; /* Remove o estilo padrão no WebKit */
+    appearance: none; /* Remove o estilo padrão */
+    background-color: transparent; /* Fundo transparente inicialmente */
+    border: 2px solid #EC7833; /* Borda laranja */
+    border-radius: 50%; /* Arredonda para ficar circular */
+    cursor: pointer; /* Adiciona um cursor pointer */
+    display: inline-block;
+    height: 20px; /* Altura do botão */
+    margin-left: 30%;
+    margin-right: 10px; /* Espaçamento à direita */
+    margin-top: -1px;
+    position: relative; /* Para facilitar o pseudo-elemento */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 20px; /* Largura do botão */
+}
+
+.radioInput:checked {
+    background-color: #EC7833; /* Cor de fundo ao selecionar */
+    border-color: #EC7833; /* Cor da borda ao selecionar */
+}
+
+.radioInput:checked::before {
+    background-color: #EC7833; /* Cor do ponto (branco) */
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 10px; /* Tamanho do ponto interior */
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px; /* Tamanho do ponto interior */
+}
+
+/*-------------------------------------------*/
+/*                TEXT AREA                  */
+/*-------------------------------------------*/
+
+.inputContainerBig {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 400;
     margin-bottom: 20px;          /* Space below each input field */
+    margin-top: 10px;
     position: relative;           /* Create a positioning context for the label */
+    width: 100%;
+}
+
+
+
+.inputContainerBig .hasValueBig {
+    border-bottom: none;
+    translate: 0 0; /* Prevent moving up if has value */
+    width: 100%;
+}
+
+.inputContainerBig .doesNotHaveValueBig {
+    border-bottom: 1px solid white;
+    translate: 0 -45%;
+    width: 100%;
+}
+
+.textarea {
+    background-color: transparent; /* Fundo transparente para estar em linha com o design */
+    border: none; /* Sem bordas */
+    border-bottom: 1px solid white; /* Linha na parte inferior */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+    margin-top: -2%; /* Ajuste vertical se necessário */
+    outline: none; /* Remove o contorno padrão */
+    padding: 8px; /* Padding interno para espaçamento */
+    transition: transform 0.3s ease;
+    resize: vertical; /* Permitir apenas redimensionamento vertical */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+/* Para mostrar uma borda superior quando o textarea está em foco, se desejar */
+.textarea:focus {
+    border-bottom: none; /* Remove a borda inferior ao focar */
+    translate: 0 0;
+}
+
+
+/*-------------------------------------------*/
+/*          CONFIRMATION BUTTONS             */
+/*-------------------------------------------*/
+
+.buttonContainer{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
 }
 
@@ -95,28 +214,17 @@ input{
     background: #EC7833;
     border: #EC7833 3px solid;
     border-radius: 20px;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
+    width: 42%;
 }
 
 .secondaryButton{
     background: transparent;
     border: #EC7833 3px solid;
     border-radius: 20px;
-    font-size: 18px;
-    margin-left: 15%;
+    font-size: 16px;
+    margin-left: 7%;
     text-align: center;
+    width: 48%;
 }
-
-.radioInput {
-    accent-color: #EC7833; /* Cor do radio button */
-    margin-right: 5px; /* Espaçamento entre radio buttons */
-}
-
-.radioGroup {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-}
-

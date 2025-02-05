@@ -4,6 +4,7 @@ import { Schema } from '../../amplify/data/resource';
 import styles from "./WeddingInviteForm.module.css";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import classNames from 'classnames';
 
 
 // Satisfactorily declare the client variable outside
@@ -18,6 +19,8 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
     const [musicSuggestions, setMusicSuggestions] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string>('');
+    const [textareaFoodFocused, setTextareaFoodFocused] = useState<boolean>(false);
+    const [textareaMusicFocused, setTextareaMusicFocused] = useState<boolean>(false);
 
 
     useEffect(() => {
@@ -153,31 +156,50 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
                             Não
                         </label>
                     </div>
-                    <div className={styles.inputContainer}>
 
+                    <div className={styles.inputContainerBig}>
                         <label className={styles.label}>
                             Restrições alimentares:
                         </label>
-                        <input
-                            type="text"
-                            className={foodRestrictions ? styles.hasValue : styles.doesNotHaveValue}
+                        <textarea
+                            className={classNames(
+                                styles.textarea,
+                                {
+                                    [styles.hasValueBig]: foodRestrictions,
+                                    [styles.doesNotHaveValueBig]: !foodRestrictions,
+                                    [styles.textareaFoodFocused]: textareaFoodFocused
+                                }
+                            )}
                             value={foodRestrictions}
+                            onBlur={() => setTextareaFoodFocused(false)}
+                            onFocus={() => setTextareaFoodFocused(true)}
                             onChange={(e) => setFoodRestrictions(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.inputContainer}>
-                        <label className={styles.label}>
-                            Sugestões musicais:
-                        </label>
-                        <input
-                            type="text"
-                            className={musicSuggestions ? styles.hasValue : styles.doesNotHaveValue}
-                            value={musicSuggestions}
-                            onChange={(e) => setMusicSuggestions(e.target.value)}
+                            rows={1} // Definir um número padrão de linhas
                         />
                     </div>
 
-                    <div>
+                    <div className={styles.inputContainerBig}>
+                        <label className={styles.label}>
+                            Sugestões musicais:
+                        </label>
+                        <textarea
+                            className={classNames(
+                                styles.textarea,
+                                {
+                                    [styles.hasValueBig]: musicSuggestions,
+                                    [styles.doesNotHaveValueBig]: !musicSuggestions,
+                                    [styles.textareaMusicFocused]: textareaMusicFocused
+                                }
+                            )}
+                            value={musicSuggestions}
+                            onBlur={() => setTextareaMusicFocused(false)}
+                            onFocus={() => setTextareaMusicFocused(true)}
+                            onChange={(e) => setMusicSuggestions(e.target.value)}
+                            rows={1} // Definir um número padrão de linhas
+                        />
+                    </div>
+
+                    <div className={styles.buttonContainer}>
                         <button
                             className={styles.primaryButton}
                             type="button"

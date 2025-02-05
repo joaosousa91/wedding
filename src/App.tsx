@@ -7,20 +7,23 @@ import WeddingInviteForm from "./widgets/WeddingInviteForm";
 import DressCode from "./widgets/DressCode";
 import Gifts from "./widgets/Gifts";
 import Menu from "./widgets/Menu";
+import styles from "./App.module.css"
 
 
 function App() {
     return <>
-        <Card />
-        <Menu />
-        <Countdown id="countdown"/>
-        <Separator />
-        <Local id="local"/>
-        <DressCode id="dressCode"/>
-        <Separator />
-        <WeddingInviteForm id="rsvp"/>
-        <Separator />
-        <Gifts id="gift"/>
+        <div className={styles.mainContainer}>
+            <Card />
+            <Menu />
+            <Countdown id="countdown"/>
+            <Separator />
+            <Local id="local"/>
+            <DressCode id="dressCode"/>
+            <Separator />
+            <WeddingInviteForm id="rsvp"/>
+            <Separator />
+            <Gifts id="gift"/>
+        </div>
     </>
 }
 
