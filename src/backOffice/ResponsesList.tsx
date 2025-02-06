@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { generateClient } from 'aws-amplify/data';
 import { Schema } from '../../amplify/data/resource';
+import * as XLSX from 'xlsx';
 import styles from "./ResponseList.module.css";
 
 // Satisfactorily declare the client variable outside
@@ -12,6 +13,7 @@ interface RSVPResponse {
     name: string | null;
     phoneNumber: string | null;
     isPlusOne: boolean | null;
+    plusOneName: string | null;
     isAttending: boolean | null;
     foodRestrictions: string | null;
     createdAt: string;
@@ -40,10 +42,23 @@ function ResponseList(){
         })();
     }, []);
 
+    const exportToExcel = () => {
+        // Cria um novo livro de trabalho (workbook) e adiciona uma folha de trabalho (worksheet)
+        const worksheet = XLSX.utils.json_to_sheet(responses);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Responses");
+
+        // Exporta o ficheiro
+        XLSX.writeFile(workbook, "responses.xlsx");
+    };
+
     return <>
 
         <div className={styles.responseListContainer}>
-            <h2>Lista de Respostas</h2>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                <h2>Lista de Respostas</h2>
+                <button onClick={exportToExcel} className={styles.exportButton}>Exportar para Excel</button>
+            </div>
             <table className={styles.responseTable}>
                 <thead>
                 <tr>
@@ -51,6 +66,7 @@ function ResponseList(){
                     <th>Nome</th>
                     <th>Nº Telefone</th>
                     <th>Acompanhante</th>
+                    <th>Nome Acompanhante</th>
                     <th>A Confirmar</th>
                     <th>Restrições Alimentares</th>
                 </tr>
@@ -62,6 +78,7 @@ function ResponseList(){
                         <td>{response.name}</td>
                         <td>{response.phoneNumber}</td>
                         <td>{response.isPlusOne ? "Sim" : "Não"}</td>
+                        <td>{response.plusOneName}</td>
                         <td>{response.isAttending ? "Sim" : "Não"}</td>
                         <td>{response.foodRestrictions || "N/A"}</td>
                     </tr>

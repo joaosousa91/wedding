@@ -11,6 +11,14 @@
     text-align: center;
 }
 
+.footNote{
+    font-size:14px;
+    font-weight: 200;
+    padding: 2%;
+    text-align: center;
+    width: 100%;
+}
+
 .rsvpSubTitle{
     flex: 0 0 100%;
     font-size: 18px;
@@ -40,12 +48,23 @@ form {
     padding: 0 5%;
 }
 
-.rsvpForm label{
-    width: auto;
-}
-
 .rsvpForm .labelTel{
     width: 40%;
+}
+
+.inputContainerName{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;          /* Space below each input field */
+    position: relative;           /* Create a positioning context for the label */
+    width: 100%;
+}
+
+.labelName{
+    width: 25%;
 }
 
 .rsvpForm input[type="text"], .rsvpForm input[type="tel"], .rsvpForm textarea{
@@ -57,7 +76,6 @@ form {
     box-shadow: none;               /* Remove box shadow */
     color: white;                   /* Text color */
     font-size: 16px;                /* Adjust font size */
-    margin-top: -2%;
     outline: none;                  /* Remove the default outline */
     padding: 8px;                  /* Add padding for spacing */
     transition: translate 0.3s ease;

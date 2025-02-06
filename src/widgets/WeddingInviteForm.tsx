@@ -14,6 +14,7 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
     const [name, setName] = useState<string>('');
     const [phoneNumber, setPhoneNumber] = useState<string | undefined>(undefined);
     const [isPlusOne, setIsPlusOne] = useState<boolean>(false);
+    const [plusOneName, setPlusOneName] = useState<string>('');
     const [isAttending, setIsAttending] = useState<boolean>(true);
     const [foodRestrictions, setFoodRestrictions] = useState<string>('');
     const [musicSuggestions, setMusicSuggestions] = useState<string>('');
@@ -33,6 +34,7 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
             name,
             phoneNumber,
             isPlusOne,
+            plusOneName,
             isAttending,
             foodRestrictions,
             musicSuggestions,
@@ -98,14 +100,17 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
 
             <div className={styles.rsvpTitle}>RSVP</div>
 
-            <div className={styles.rsvpSubTitle}>Por favor responder até ao dia 12 de abril 2025</div>
+            <div className={styles.rsvpSubTitle}>Por favor responder até ao dia 12 de abril 2025.</div>
+            <div className={styles.footNote}>Informamos que a presença de crianças é reservada<br/> apenas para a família e para os maiores de seis
+                anos.<br/> Agradecemos a compreensão!
+            </div>
 
             <div className={styles.rsvpForm}>
 
                 <form onSubmit={handleSubmit}>
 
-                    <div className={styles.inputContainer}>
-                        <label className={styles.label}>
+                    <div className={styles.inputContainerName}>
+                        <label className={styles.labelName}>
                             Nome*:
                         </label>
                         <input
@@ -140,7 +145,10 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
                                 value="yes"
                                 className={styles.radioInput}
                                 checked={isPlusOne}
-                                onChange={() => setIsPlusOne(true)}
+                                onChange={() => {
+                                    setIsPlusOne(true);
+                                    setPlusOneName('');
+                                }}
                             />
                             Sim
                         </label>
@@ -151,11 +159,29 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
                                 value="no"
                                 className={styles.radioInput}
                                 checked={!isPlusOne}
-                                onChange={() => setIsPlusOne(false)}
+                                onChange={() => {
+                                    setIsPlusOne(false);
+                                    setPlusOneName('');
+                                }}
                             />
                             Não
                         </label>
                     </div>
+
+                    {isPlusOne && (
+                        <div className={styles.inputContainer}>
+                            <label className={styles.label}>
+                                Nome do Acompanhante*:
+                            </label>
+                            <input
+                                type="text"
+                                className={plusOneName ? styles.hasValue : styles.doesNotHaveValue}
+                                value={plusOneName}
+                                onChange={(e) => setPlusOneName(e.target.value)}
+                                required // Este campo é obrigatório
+                            />
+                        </div>
+                    )}
 
                     <div className={styles.inputContainerBig}>
                         <label className={styles.label}>
