@@ -201,7 +201,6 @@ input{
     border-bottom: 1px solid white; /* Linha na parte inferior */
     color: white; /* Cor do texto */
     font-size: 16px; /* Tamanho da fonte */
-    margin-top: -2%; /* Ajuste vertical se necessário */
     outline: none; /* Remove o contorno padrão */
     padding: 8px; /* Padding interno para espaçamento */
     transition: transform 0.3s ease;

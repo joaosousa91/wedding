@@ -169,7 +169,7 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
                     </div>
 
                     {isPlusOne && (
-                        <div className={styles.inputContainer}>
+                        <div className={styles.inputContainerBig}>
                             <label className={styles.label}>
                                 Nome do Acompanhante*:
                             </label>
@@ -191,8 +191,8 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
                             className={classNames(
                                 styles.textarea,
                                 {
-                                    [styles.hasValueBig]: foodRestrictions,
-                                    [styles.doesNotHaveValueBig]: !foodRestrictions,
+                                    [styles.hasValue]: foodRestrictions,
+                                    [styles.doesNotHaveValue]: !foodRestrictions,
                                     [styles.textareaFoodFocused]: textareaFoodFocused
                                 }
                             )}
@@ -212,8 +212,8 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
                             className={classNames(
                                 styles.textarea,
                                 {
-                                    [styles.hasValueBig]: musicSuggestions,
-                                    [styles.doesNotHaveValueBig]: !musicSuggestions,
+                                    [styles.hasValue]: musicSuggestions,
+                                    [styles.doesNotHaveValue]: !musicSuggestions,
                                     [styles.textareaMusicFocused]: textareaMusicFocused
                                 }
                             )}
