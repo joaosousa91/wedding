@@ -3,6 +3,7 @@ import { generateClient } from 'aws-amplify/data';
 import { Schema } from '../../amplify/data/resource';
 import * as XLSX from 'xlsx';
 import styles from "./ResponseList.module.css";
+import {Image} from "@aws-amplify/ui-react";
 
 // Satisfactorily declare the client variable outside
 let client: ReturnType<typeof generateClient<Schema>>;
@@ -42,6 +43,17 @@ function ResponseList(){
         })();
     }, []);
 
+    const deleteResponse = async (id: string) => {
+        try {
+            // Lógica para apagar o registo na base de dados
+            await client.models.WeddingInviteResponse.delete({ id });
+            // Atualizar a lista de respostas após a eliminação
+            setResponses(responses.filter(response => response.id !== id));
+        } catch (error) {
+            console.error("Erro ao apagar resposta:", error);
+        }
+    };
+
     const exportToExcel = () => {
         // Cria um novo livro de trabalho (workbook) e adiciona uma folha de trabalho (worksheet)
         const worksheet = XLSX.utils.json_to_sheet(responses);
@@ -67,8 +79,9 @@ function ResponseList(){
                     <th>Nº Telefone</th>
                     <th>Acompanhante</th>
                     <th>Nome Acompanhante</th>
-                    <th>A Confirmar</th>
+                    <th>Vai estar presente?ß</th>
                     <th>Restrições Alimentares</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,6 +94,16 @@ function ResponseList(){
                         <td>{response.plusOneName}</td>
                         <td>{response.isAttending ? "Sim" : "Não"}</td>
                         <td>{response.foodRestrictions || "N/A"}</td>
+                        <td>
+                            <button onClick={() => deleteResponse(response.id)}>
+                                <Image
+                                    alt="separator"
+                                    src="/assets/Trash_Can.png"
+                                    height="25%"
+                                    width="25%"
+                                />
+                            </button>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
