@@ -79,7 +79,7 @@ function ResponseList(){
                     <th>Nº Telefone</th>
                     <th>Acompanhante</th>
                     <th>Nome Acompanhante</th>
-                    <th>Vai estar presente?ß</th>
+                    <th>Vai estar presente?</th>
                     <th>Restrições Alimentares</th>
                     <th></th>
                 </tr>
