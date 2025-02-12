@@ -21,8 +21,8 @@
 
 .rsvpSubTitle{
     flex: 0 0 100%;
-    font-size: 18px;
-    font-weight: 200;
+    font-size: 16px;
+    font-weight: 400;
     margin-top: 5px;
     text-align: center;
 }
@@ -49,7 +49,7 @@ form {
 }
 
 .rsvpForm .labelTel{
-    width: 40%;
+    width: 42%;
 }
 
 .inputContainerName{
@@ -244,4 +244,32 @@ input{
     margin-left: 7%;
     text-align: center;
     width: 48%;
+}
+
+button:hover{
+    border: #EC7833;
+}
+
+/*-------------------------------------------*/
+/*                 MESSAGES                  */
+/*-------------------------------------------*/
+
+.errorCode{
+    background-color: #eab6b6;
+    border-radius: 20px;
+    color: red;
+    font-size: 14px;
+    margin-top: 8%;
+    padding: 3px;
+    text-align: center;
+}
+
+.successCode{
+    background-color: #a8d6c1;
+    border-radius: 20px;
+    color: #20533C;
+    font-size: 14px;
+    margin-top: 8%;
+    padding: 3px;
+    text-align: center;
 }

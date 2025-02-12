@@ -100,7 +100,7 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
 
             <div className={styles.rsvpTitle}>RSVP</div>
 
-            <div className={styles.rsvpSubTitle}>Por favor responder até ao dia 12 de abril de 2025.</div>
+            <div className={styles.rsvpSubTitle}>Por favor responder até ao dia 12 de abril de 2025</div>
             <div className={styles.footNote}>Informamos que a presença de crianças é reservada<br/> apenas para a família e para os maiores de seis
                 anos.<br/> Agradecemos a compreensão!
             </div>
@@ -249,8 +249,8 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
                     </div>
 
 
-                    {error && <p style={{color: 'red'}}>{error}</p>}
-                    {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
+                    {error && <p className={styles.errorCode}>{error}</p>}
+                    {successMessage && <p className={styles.successCode}>{successMessage}</p>}
 
                 </form>
 
