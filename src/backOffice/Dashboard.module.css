@@ -1,0 +1,72 @@
+.dashContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboardContainer {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    gap: 7%;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.card {
+    background-color: transparent;
+    border-radius: 8px;
+    border: 2px solid #EC7833;
+    box-shadow: 0 4px 8px rgba(236, 120, 51, 1);
+    flex: 35% 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.bigNumber{
+    color: #EC7833;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.pieContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.tablesContainer {
+    display: flex;
+    justify-content: space-around; /* Espaçamento entre as tabelas */
+    margin-top: 20px; /* Espaçamento acima das tabelas */
+    width: 100%;
+}
+
+.tableContainer {
+    background-color: #f8f8f8; /* Cor de fundo das tabelas */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #20533C;
+    padding: 15px; /* Padding interno */
+    width: 45%; /* Largura das tabelas */
+}
+
+.responseTable {
+    width: 100%; /* A tabela ocupa toda a largura do container */
+    border-collapse: collapse; /* Remove espaços entre células */
+}
+
+.responseTable th,
+.responseTable td {
+    border: 1px solid #ddd; /* Borda das células */
+    padding: 12px; /* Espaçamento interno */
+    text-align: left; /* Alinhamento do texto à esquerda */
+}
+
+.responseTable th {
+    background-color: #EC7833; /* Cor de fundo dos cabeçalhos */
+    color: white; /* Cor do texto dos cabeçalhos */
+}
+
+.responseTable tr:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}

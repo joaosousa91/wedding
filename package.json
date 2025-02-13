@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-phone-number-input": "^3.4.11",
     "react-router-dom": "^7.1.1",
+    "recharts": "^2.15.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
