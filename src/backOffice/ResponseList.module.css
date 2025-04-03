@@ -1,24 +1,123 @@
 .responseListContainer {
-    padding: 20px; /* Padding da lista de respostas */
+    background-color: #2F5D50;
+    padding: 40px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.exportButton {
+    background-color: #e7c88d;
+    border: none;
+    border-radius: 8px;
+    color: #2F5D50;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background 0.2s ease;
+}
+
+.exportButton:hover {
+    background-color: #d6b97a;
 }
 
 .responseTable {
-    width: 100%; /* Tabela ocupa toda a largura */
-    border-collapse: collapse; /* Remove espaços entre células */
-}
-
-.responseTable th,
-.responseTable td {
-    border: 1px solid #EC7833; /* Borda das células */
-    padding: 12px; /* Espaçamento interno */
-    text-align: left; /* Alinhamento do texto à esquerda */
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .responseTable th {
-    background-color: #EC7833; /* Cor de fundo dos cabeçalhos */
-    font-weight: bold; /* Destaque nos cabeçalhos */
+    background-color: #2F5D50;
+    color: white;
+    font-weight: 600;
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 2px solid #e7c88d;
 }
 
-.responseTable tr:hover {
-    background-color: #EC7833; /* Cor de fundo ao passar o mouse */
+.responseTable td {
+    color: white;
+    padding: 14px 16px;
+    border-bottom: 1px solid #e7c88d;
+}
+
+.responseTable tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.responseTable td:last-child {
+    text-align: center;
+}
+
+/* Modal styling — mantém igual */
+
+.modalOverlay {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+}
+
+.modal {
+    animation: fadeIn 0.3s ease-out;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    color: #2F5D50;
+    min-width: 300px;
+    padding: 30px;
+    text-align: center;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modalButtons button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 10px 20px;
+    transition: background 0.2s ease;
+}
+
+.modalButtons button:first-child {
+    background-color: #EC7833;
+    color: white;
+}
+
+.modalButtons button:first-child:hover {
+    background-color: #d36a2e;
+}
+
+.modalButtons button:last-child {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.modalButtons button:last-child:hover {
+    background-color: #ddd;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

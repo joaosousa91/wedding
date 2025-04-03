@@ -81,7 +81,7 @@ const WeddingInviteForm: React.FC<{ id: string }> = ({ id }) => {
                 console.log("Response not found, going to create");
 
                 // Se não houver uma resposta existente, crie uma nova
-                const rsvpResponse = client.models.WeddingInviteResponse.create(rsvpData);
+                const rsvpResponse = await client.models.WeddingInviteResponse.create(rsvpData);
                 console.log("Response from create call:", rsvpResponse);
                 console.log("RSVP successfully created!");
                 setSuccessMessage('RSVP criado com sucesso!');

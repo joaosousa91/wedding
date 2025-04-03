@@ -1,0 +1,33 @@
+.navBar {
+    background-color: #2F5D50;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+}
+
+.tab {
+    background-color: transparent;
+    border: 2px solid #e7c88d;
+    border-radius: 8px;
+    color: #e7c88d;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab:hover {
+    background-color: #e7c88d;
+    color: #2F5D50;
+}
+
+.activeTab {
+    background-color: #e7c88d;
+    border: 2px solid #e7c88d;
+    border-radius: 8px;
+    color: #2F5D50;
+    font-weight: bold;
+    padding: 10px 20px;
+}

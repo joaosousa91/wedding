@@ -1,15 +1,26 @@
 import { useState } from 'react';
 import ResponseList from "./ResponsesList";
 import Dashboard from './Dashboard';
+import styles from "./BOApp.module.css";
 
 function BOApp(){
-    const [currentView, setCurrentView] = useState('responses');
+    const [currentView, setCurrentView] = useState('dashboard');
 
     return (
         <div>
-            <nav style={{display: 'flex', justifyContent: 'space-around', padding: '10px', background: '#EC7833'}}>
-                <button onClick={() => setCurrentView('dashboard')}>Dashboard</button>
-                <button onClick={() => setCurrentView('responses')}>Lista de Respostas</button>
+            <nav className={styles.navBar}>
+                <button
+                    className={currentView === 'dashboard' ? styles.activeTab : styles.tab}
+                    onClick={() => setCurrentView('dashboard')}
+                >
+                    Dashboard
+                </button>
+                <button
+                    className={currentView === 'responses' ? styles.activeTab : styles.tab}
+                    onClick={() => setCurrentView('responses')}
+                >
+                    Lista de Respostas
+                </button>
             </nav>
             <div>
                 {currentView === 'responses' && <ResponseList />}
