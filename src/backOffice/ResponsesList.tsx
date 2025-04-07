@@ -5,7 +5,6 @@ import * as XLSX from 'xlsx';
 import styles from "./ResponseList.module.css";
 import { Image } from "@aws-amplify/ui-react";
 
-// Satisfactorily declare the client variable outside
 let client: ReturnType<typeof generateClient<Schema>>;
 
 interface RSVPResponse {
@@ -23,6 +22,8 @@ interface RSVPResponse {
 function ResponseList() {
     const [responses, setResponses] = useState<RSVPResponse[]>([]);
     const [idToDelete, setIdToDelete] = useState<string | null>(null);
+    const [sortBy, setSortBy] = useState<'createdAt' | 'name'>('createdAt');
+    const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
 
     useEffect(() => {
         client = generateClient<Schema>();
@@ -30,16 +31,33 @@ function ResponseList() {
         const fetchResponses = async () => {
             try {
                 const response = await client.models.WeddingInviteResponse.list();
-                setResponses(response.data);
+                const sortedResponses = sortResponses(response.data);
+                setResponses(sortedResponses);
             } catch (error) {
                 console.error("Erro ao obter respostas:", error);
             }
         };
 
-        (async () => {
-            await fetchResponses();
-        })();
-    }, []);
+        fetchResponses();
+    }, [sortBy, sortDirection]);
+
+    const sortResponses = (data: RSVPResponse[]) => {
+        return [...data].sort((a, b) => {
+            let valA: string | number, valB: string | number;
+
+            if (sortBy === 'name') {
+                valA = (a.name || '').toLowerCase();
+                valB = (b.name || '').toLowerCase();
+            } else {
+                valA = new Date(a.createdAt).getTime();
+                valB = new Date(b.createdAt).getTime();
+            }
+
+            if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
+            if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
+            return 0;
+        });
+    };
 
     const deleteResponse = async (id: string) => {
         try {
@@ -68,7 +86,19 @@ function ResponseList() {
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nome</th>
+                        <th
+                            style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                            onClick={() => {
+                                if (sortBy === 'name') {
+                                    setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+                                } else {
+                                    setSortBy('name');
+                                    setSortDirection('asc');
+                                }
+                            }}
+                        >
+                            Nome {sortBy === 'name' ? (sortDirection === 'asc' ? '▲' : '▼') : ''}
+                        </th>
                         <th>Nº Telefone</th>
                         <th>Acompanhante</th>
                         <th>Nome Acompanhante</th>
@@ -90,7 +120,7 @@ function ResponseList() {
                             <td>
                                 <button onClick={() => setIdToDelete(response.id)}>
                                     <Image
-                                        alt="separator"
+                                        alt="Apagar"
                                         src="/assets/Trash_Can.png"
                                         height="25%"
                                         width="25%"
